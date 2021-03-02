@@ -13,6 +13,7 @@ const WindowFileEntry::WriteMemberFunctionMap
 	WindowFileEntry::m_write_member_function_map =
 {
 	{ "name", &WindowFileEntry::writeName },
+	{ "icon_name", &WindowFileEntry::writeIconName },
 	{ "desktop", &WindowFileEntry::writeDesktop },
 	{ "control", &WindowFileEntry::writeCommand },
 	{ "geometry", &WindowFileEntry::writeGeometry },

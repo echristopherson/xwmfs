@@ -79,6 +79,33 @@ std::string XWindow::getName() const
 	return name.get();
 }
 
+std::string XWindow::getIconName() const
+{
+	try
+	{
+		xwmfs::Property<utf8_string> utf8_name;
+
+		this->getProperty(m_std_props.atom_ewmh_window_icon_name, utf8_name);
+
+		return utf8_name.get().data;
+	}
+	catch( ... )
+	{ }
+
+	/*
+	 *	If EWMH name property is not present then try to fall back to
+	 *	ICCCM WM_NAME property
+	 *	(at least I think that is ICCCM). This will not be in UTF8 but
+	 *	in XA_STRING format
+	 */
+
+	xwmfs::Property<const char*> name;
+
+	this->getProperty(m_std_props.atom_icccm_window_icon_name, name);
+
+	return name.get();
+}
+
 pid_t XWindow::getPID() const
 {
 	xwmfs::Property<int> pid;
@@ -116,6 +143,26 @@ void XWindow::setName(const std::string &name)
 	xwmfs::Property<const char*> name_prop( name.c_str() );
 
 	this->setProperty( m_std_props.atom_icccm_window_name, name_prop );
+}
+
+void XWindow::setIconName(const std::string &name)
+{
+	try
+	{
+		xwmfs::Property<utf8_string> utf8_name;
+		utf8_name = utf8_string(name.c_str());
+
+		this->setProperty( m_std_props.atom_ewmh_window_icon_name, utf8_name );
+
+		return;
+	}
+	catch( ... )
+	{
+	}
+
+	xwmfs::Property<const char*> name_prop( name.c_str() );
+
+	this->setProperty( m_std_props.atom_icccm_window_icon_name, name_prop );
 }
 
 void XWindow::setDesktop(const int num)

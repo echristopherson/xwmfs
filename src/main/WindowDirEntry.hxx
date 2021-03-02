@@ -92,6 +92,9 @@ protected: // functions
 	//! adds/updates the window name of the window
 	void updateWindowName(FileEntry &entry);
 
+	//! adds/updates the window icon name of the window
+	void updateWindowIconName(FileEntry &entry);
+
 	//! adds/updates an entry for the desktop nr the window is on
 	void updateDesktop(FileEntry &entry);
 

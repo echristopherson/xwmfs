@@ -78,6 +78,12 @@ WindowDirEntry::SpecVector WindowDirEntry::getSpecVector() const
 				std_props.atom_ewmh_window_name
 			}
 		),
+		EntrySpec("icon_name", &WindowDirEntry::updateWindowIconName, true,
+			{
+				std_props.atom_icccm_window_icon_name,
+				std_props.atom_ewmh_window_icon_name
+			}
+		),
 		EntrySpec("desktop", &WindowDirEntry::updateDesktop, true,
 			std_props.atom_ewmh_desktop_nr),
 		EntrySpec("pid", &WindowDirEntry::updatePID, false,
@@ -236,6 +242,11 @@ void WindowDirEntry::forwardEvent(const EntrySpec &changed_entry)
 void WindowDirEntry::updateWindowName(FileEntry &entry)
 {
 	entry << m_win.getName();
+}
+
+void WindowDirEntry::updateWindowIconName(FileEntry &entry)
+{
+	entry << m_win.getIconName();
 }
 
 void WindowDirEntry::updateDesktop(FileEntry &entry)

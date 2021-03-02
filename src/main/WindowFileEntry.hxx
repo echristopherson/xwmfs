@@ -44,6 +44,12 @@ public:
 		m_win.setName( name );
 	}
 
+	void writeIconName(const char *data, const size_t bytes)
+	{
+		std::string name(data, bytes);
+		m_win.setIconName( name );
+	}
+
 	void writeDesktop(const char *data, const size_t bytes)
 	{
 		int the_num;

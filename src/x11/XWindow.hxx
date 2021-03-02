@@ -160,6 +160,23 @@ public: // functions
 
 	/**
 	 * \brief
+	 *	Retrieve the icon name of the represented window via EWMH property
+	 * \details
+         * 	TODO: I'm not sure if this text pertains to icon names, as it
+         * 	does to window names.
+	 * 	An X window does not have an integral name attached to it.
+	 * 	Instead there are properties the window manager can set
+	 * 	according to standards or to its own discretion.
+	 *
+	 * 	This function tries to retrieve the property as defined by the
+	 * 	EWMH standard.
+	 *
+	 * 	If the name cannot be determined an exception is thrown.
+	 **/
+	std::string getIconName() const;
+
+	/**
+	 * \brief
 	 * 	Retrieve the PID that owns the represented window
 	 * \details
 	 * 	If the pid cannot be determined an exception is thrown.
@@ -187,6 +204,18 @@ public: // functions
 	 * 	title accordingly.
 	 **/
 	void setName(const std::string &name);
+
+	/**
+	 * \brief
+	 * 	Set \c name as the new icon name of the current window
+	 * \details
+         * 	If the window icon name cannot be set then an exception is
+         * 	thrown.
+	 *
+         * 	On success the window manager should update the visible window
+         * 	icon title accordingly.
+	 **/
+	void setIconName(const std::string &name);
 
 	/**
 	 * \brief

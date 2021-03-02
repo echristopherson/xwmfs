@@ -167,6 +167,8 @@ struct StandardProps
 {
 	//! window name property (EWMH)
 	XAtom atom_ewmh_window_name;
+	//! window icon name property (EWMH)
+	XAtom atom_ewmh_window_icon_name;
 	//! desktop on which a window is currently on
 	XAtom atom_ewmh_window_desktop;
 	//! PID associated with a window
@@ -195,6 +197,8 @@ struct StandardProps
 	XAtom atom_icccm_client_machine;
 	//! window name property acc. to ICCCM spec.
 	XAtom atom_icccm_window_name;
+	//! window icon name property acc. to ICCCM spec.
+	XAtom atom_icccm_window_icon_name;
 	//! contains and defines x11 protocols to be supported by clients or not
 	XAtom atom_icccm_wm_protocols;
 	//! a WM_PROTOCOLS request to delete a window

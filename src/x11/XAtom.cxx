@@ -29,6 +29,7 @@ StandardProps::StandardProps()
 	{
 		auto &mapper = XAtomMapper::getInstance();
 		atom_ewmh_window_name = mapper.getAtom("_NET_WM_NAME");
+		atom_ewmh_window_icon_name = mapper.getAtom("_NET_WM_ICON_NAME");
 		atom_ewmh_window_desktop = mapper.getAtom("_NET_WM_DESKTOP");
 		atom_ewmh_window_pid = mapper.getAtom("_NET_WM_PID");
 		atom_ewmh_utf8_string = mapper.getAtom("UTF8_STRING");
@@ -43,6 +44,7 @@ StandardProps::StandardProps()
 		atom_ewmh_wm_window_type = mapper.getAtom("_NET_WM_WINDOW_TYPE");
 		atom_icccm_client_machine = mapper.getAtom("WM_CLIENT_MACHINE");
 		atom_icccm_window_name = mapper.getAtom("WM_NAME");
+		atom_icccm_window_icon_name = mapper.getAtom("WM_ICON_NAME");
 		atom_icccm_wm_protocols = mapper.getAtom("WM_PROTOCOLS");
 		atom_icccm_wm_delete_window = mapper.getAtom("WM_DELETE_WINDOW");
 		atom_icccm_wm_client_machine = mapper.getAtom("WM_CLIENT_MACHINE");
